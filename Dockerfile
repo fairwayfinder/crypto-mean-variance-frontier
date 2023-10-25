@@ -23,4 +23,4 @@ RUN apt-get update && \
 USER jovyan
 
 # Installing python libraries using mamba
-RUN mamba install matplotlib numpy
+RUN mamba install matplotlib numpy yfinance
