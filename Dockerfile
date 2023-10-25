@@ -22,5 +22,5 @@ RUN apt-get update && \
 # Switch back to the default jupyter user (jovyan), since its non-root
 USER jovyan
 
-# Installing python libraries using mamba
-RUN mamba install matplotlib numpy
+# Installing python libraries using mamba (tried adding -y since it was getting stuck)
+RUN mamba install matplotlib numpy yfinance -y
