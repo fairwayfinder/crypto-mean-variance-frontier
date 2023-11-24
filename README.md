@@ -3,6 +3,24 @@ crypto_mean_variance
 
 We're researching if the way crypto currienciemean variance efficient frontier
 
+# Notes - Thomas
+run this to start jupyter notebook session:
+
+docker run -p 8888:8888 -v $(pwd):/workspace -e JUPYTER_ENABLE_LAB=yes -w /workspace -e JUPYTER_TOKEN='' my-jupyter-image
+
+**Data grabbing**
+* Look up how to mkdir data/processed and data/raw. (since they are in the .gitignore)
+* change the data grabbing to .py files instead of ipynb.
+* make script to run both the data grabbing scripts and mkdir ?
+* ken french data grabbing is suboptimal and takes approx 20 sec. --> check if time!
+
+
+**Docker**
+* Update container to run *r* scripts in jupyter notebooks
+* re-add latex pdf compiler 
+
+
+
 Project Organization
 ------------
 
@@ -53,12 +71,6 @@ Project Organization
 
 
 --------
-
-# Notes - Thomas
-run this to start jupyter notebook session:
-
-docker run -p 8888:8888 -v $(pwd):/workspace -e JUPYTER_ENABLE_LAB=yes -w /workspace -e JUPYTER_TOKEN='' my-jupyter-image
-
 
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
