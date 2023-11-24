@@ -8,6 +8,9 @@ run this to start jupyter notebook session:
 
 docker run -p 8888:8888 -v $(pwd):/workspace -e JUPYTER_ENABLE_LAB=yes -w /workspace -e JUPYTER_TOKEN='' my-jupyter-image
 
+docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my-jupyter-image
+
+
 **Data grabbing**
 * Look up how to mkdir data/processed and data/raw. (since they are in the .gitignore)
 * change the data grabbing to .py files instead of ipynb.
@@ -18,6 +21,14 @@ docker run -p 8888:8888 -v $(pwd):/workspace -e JUPYTER_ENABLE_LAB=yes -w /works
 **Docker**
 * Update container to run *r* scripts in jupyter notebooks
 * re-add latex pdf compiler 
+
+**Docker build image**
+* run: docker build -t my-jupyter-image .
+*my-jupyter-image* is the name of the image and . is the current folder. So make sure you're in the correct folder when running this. 
+
+* R-code
+ * look into r code working directory (inside docker)
+ * test if all packages are imported correctly
 
 
 

@@ -31,7 +31,14 @@ RUN mamba install --quiet --yes \
 # Install R packages
 RUN mamba install --quiet --yes \
     'r-base' \
-    #'r-fportfolio' \
+    'r-fportfolio' \
+    'r-fbasics' \
+    'r-fassets' \
+    'r-lubridate' \
+    'r-quantmod' \
+    'r-readr' \
+    'r-tidyr' \
+    'r-xml' \
     # remove package installation caches etc, -f to avoid prompts, -y to answer yes to prompts. 
     && mamba clean --all -f -y 
 
