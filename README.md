@@ -17,6 +17,9 @@ docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my
 * make script to run both the data grabbing scripts and mkdir ?
 * ken french data grabbing is suboptimal and takes approx 20 sec. --> check if time!
 
+**Readme**
+* instructions for all steps for reproduction
+* link to headers/files when they are mentioned
 
 **Docker**
 * Update container to run *r* scripts in jupyter notebooks
@@ -26,9 +29,18 @@ docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my
 * run: docker build -t my-jupyter-image .
 *my-jupyter-image* is the name of the image and . is the current folder. So make sure you're in the correct folder when running this. 
 
-* R-code
+**R-code**
  * look into r code working directory (inside docker)
  * test if all packages are imported correctly
+
+**Jupyter notebook**
+* Look at ways to make it interactive and nice to use. 
+
+**Latex**
+* test dockerimage
+* add beamer template
+* add report template
+ * maybe use bibler?
 
 
 
