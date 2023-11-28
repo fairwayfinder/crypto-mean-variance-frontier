@@ -4,25 +4,39 @@ crypto_mean_variance
 We're researching if the way crypto currienciemean variance efficient frontier
 
 # Notes - Thomas
-run this to start jupyter notebook session:
+### Build docker image
 
+**Build docker image**
+```bash
+docker build -t my-jupyter-image .
+```
+where *my-jupyter-image* is the tag we choose for this image and . will use the dockerfile in the current directory
+
+
+**run this to start jupyter notebook session:**
+```bash
 docker run -p 8888:8888 -v $(pwd):/workspace -e JUPYTER_ENABLE_LAB=yes -w /workspace -e JUPYTER_TOKEN='' my-jupyter-image
+```
 
+OR
+
+```bash
 docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my-jupyter-image
+```
 
 
 **Data grabbing**
 * Look up how to mkdir data/processed and data/raw. (since they are in the .gitignore)
 * change the data grabbing to .py files instead of ipynb.
-* make script to run both the data grabbing scripts and mkdir ?
+* make script to run both the data grabbing scripts?
 * ken french data grabbing is suboptimal and takes approx 20 sec. --> check if time!
+ * Data grabbing can get faster with paralell tasks --> concurrent.futures (feels a bit unneccessary for us)
 
 **Readme**
 * instructions for all steps for reproduction
 * link to headers/files when they are mentioned
 
 **Docker**
-* Update container to run *r* scripts in jupyter notebooks
 * re-add latex pdf compiler 
 
 **Docker build image**
@@ -31,7 +45,6 @@ docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my
 
 **R-code**
  * look into r code working directory (inside docker)
- * test if all packages are imported correctly
 
 **Jupyter notebook**
 * Look at ways to make it interactive and nice to use. 
@@ -41,6 +54,8 @@ docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my
 * add beamer template
 * add report template
  * maybe use bibler?
+ * Which other latex libraries (?) will we use? 
+
 
 
 
