@@ -1,18 +1,63 @@
-\documentclass{article}
+\documentclass[12pt,a4paper]{article}
+% \usepackage[english]{babel}
+% \usepackage[utf8x]{inputenc}
 
-\title{Testing compiler}
-\author{name}
-\date{\today}
+\usepackage{graphicx} % Required for inserting images.
+\usepackage[margin=25mm]{geometry}
+\parskip 4.2pt  % Sets spacing between paragraphs.
+% \renewcommand{\baselinestretch}{1.5}  % Uncomment for 1.5 spacing between lines.
+\parindent 8.4pt  % Sets leading space for paragraphs.
+\usepackage[font=sf]{caption} % Changes font of captions.
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{verbatim}
+\usepackage{hyperref} % Required for inserting clickable links.
+\usepackage{natbib} % Required for APA-style citations.
+
+
+\title{Do cryptocurrencies extend the mean-variance frontier of an equity investor?}
+\author{Sander Naerum, Thomas Pietsch and Ziga Jagodnik}
 
 \begin{document}
-
 \maketitle
 
-\section{Introduction}
-Test test, If i can see this, the compiler is working
+\begin{abstract}
+In this project we will investigate if cryptocurrencies extend the mean-variance frontier of an equity investor. By using an industry portfolio dataset consisting of 12 different industries collected from Kenneth French website combined with “” cryptocurrency index, we extract the mean-variance frontier. We show that adding cryptocurrencies to the mean-variance frontier do not have a significant impact.  
+\end{abstract}
 
+\section{Introduction}\label{sec:intro}
+The mean-variance frontier is a mathematical framework for building portfolios that aim to maximize expected returns while controlling a set level of risk. This concept extends diversification in investing, highlighting that owning diverse financial assets is less risky than focusing on a single asset class. The key idea is that an asset's risk and return should be evaluated in the context of its contribution to the overall risk and return of a diversified portfolio. Historical asset price variance is used as a proxy for estimating future risk in the mean-variance frontier.
 
-\section{Conclusion}
-testing testing, LaTeX setup seems to be functioning correctly
+In the evolving landscape of financial assets, the integration of cryptocurrencies adds a new dimension to portfolio construction. Cryptocurrencies, such as Bitcoin and Ethereum, bring unique characteristics and opportunities to the mix. Therefore, it is interesting to explore if this new universe of assets can enhance portfolio diversification. 
+
+\section{Methods}\label{sec:methods}
+
+\section{Results}\label{sec:result}
+
+\section{Discussion}\label{sec:discussion}
+
+Blah
+
+\subsection{Limitations}\label{sec:limitations}
+
+Blah blah
+
+\subsection{Future work}\label{sec:future}
+
+Did you see what I wrote in Sec.~\ref{sec:intro}? Not too controversial I hope!
+
+\begin{figure}[htbp!]
+\begin{center}
+\includegraphics[width=0.5\columnwidth]{venn_discoveries.pdf}
+\end{center}
+\caption{Yes, put a few words or sentences here explaining what is in the figure.}
+\label{fig:venn}
+\end{figure}
+
+\bibliographystyle{apalike}
+\bibliography{example}
 
 \end{document}
