@@ -31,6 +31,8 @@ docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my
 * make script to run both the data grabbing scripts?
 * ken french data grabbing is suboptimal and takes approx 20 sec. --> check if time!
  * Data grabbing can get faster with paralell tasks --> concurrent.futures (feels a bit unneccessary for us)
+* Double check ken french return conversion to log return!
+
 
 **Readme**
 * instructions for all steps for reproduction

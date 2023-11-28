@@ -1,4 +1,4 @@
-# Starting from Jupyter base notebook image
+# Starting from Jupyter r-notebook image
 FROM jupyter/r-notebook
 
 #Switch to the root user to install packages
