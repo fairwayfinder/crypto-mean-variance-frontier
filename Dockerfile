@@ -13,6 +13,7 @@ RUN apt-get update && \
     texlive-fonts-recommended \
     texlive-fonts-extra \
     texlive-latex-extra \
+    texlive-science \ 
     pandoc && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
