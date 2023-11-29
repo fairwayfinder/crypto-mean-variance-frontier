@@ -43,7 +43,18 @@ construction. Cryptocurrencies, such as Bitcoin and Ethereum, bring unique chara
 Therefore, it is interesting to explore if this new universe of assets can enhance portfolio diversification. 
 
 \section{Methodology}\label{sec:methods}
-\subsection{Assumptions}
+\subsection{Assumptions under the MPT}
+\begin{itemize}
+\item Investors prefer higher returns for a given level of risk or aim to minimize risk for a given level of returns.
+\item The degree of risk aversion varies among investors.
+\item Investors have complete information about expected returns, variances, and covariances for all assets.
+\item Investment returns are assumed to follow a normal distribution.
+\item Only returns, variances, and covariances are needed to calculate the optimal portfolio.
+\item No transaction costs or taxes.
+\item We assume the risk-free rate to be equal to the current 3m Treasury yield of "", and all investors can borrow and lend at this rate. 
+\end{itemize}
+The mean-variance analysis is used to identify optimal/efficient portfolios.
+
 \subsection{Return calculations}
 The data downloaded from Kenneth French's website is already calculated as simple returns, however, in this paper we will use the log returns of the assets. To convert the simple returns to log, we use the following formula: 
 $$r_i = ln(1+r_i)$$
