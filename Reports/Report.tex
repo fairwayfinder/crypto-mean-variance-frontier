@@ -43,9 +43,18 @@ construction. Cryptocurrencies, such as Bitcoin and Ethereum, bring unique chara
 Therefore, it is interesting to explore if this new universe of assets can enhance portfolio diversification. 
 
 \section{Methodology}\label{sec:methods}
+\subsection{Assumptions}
+\subsection{Return calculations}
+The data downloaded from Kenneth French's website is already calculated as simple returns, however, in this paper we will use the log returns of the assets. To convert the simple returns to log, we use the following formula: 
+$$r_i = ln(1+r_i)$$
+
+\noindent For the data on the crypto prices downloaded from yahoo finance we use the following formula to obtain the log returns: 
+$$r_i = ln(\frac{P_t}{P_t-1})$$
+
+\section{Data}\label{sec:result}
 \textbf{Equity data:} Kenneth French website, 12 industry portfolios. 
 
-\textbf{Crypto's:} Imported the 5 largest crypto currencies based on market cap.  
+\noindent\textbf{Crypto's:} Imported the 5 largest crypto currencies based on market cap, source: Yahoo Finance.  
 
 \section{Results}\label{sec:result}
 
