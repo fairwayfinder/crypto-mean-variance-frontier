@@ -1,7 +1,18 @@
-crypto_mean_variance
+# crypto_mean_variance
+[![](https://img.shields.io/badge/go_to-course_homepage-blue)](https://github.com/ipozdeev/it-skills-for-research)
+[![](https://img.shields.io/badge/go_to-data_grabbing_notebook-yellow)](src/data/GDLC_data.ipynb)
+[![](https://img.shields.io/badge/go_to-main_notebook-green)](notebooks/MAIN.ipynb)
+
 ==============================
 
+**TABLE OF CONTENTS** \
+[Short step-by-step guide](#build-docker-image)
+
+
+
+
 We're researching if the way crypto currienciemean variance efficient frontier
+UPDATE THIS
 
 # Notes - Thomas
 ### Build docker image
@@ -10,7 +21,7 @@ We're researching if the way crypto currienciemean variance efficient frontier
 ```bash
 docker build -t my-jupyter-image .
 ```
-where *my-jupyter-image* is the tag we choose for this image and . will use the dockerfile in the current directory
+where *my-jupyter-image* is the tag we choose for this image and . will use the dockerfile in the current directory. (make sure you're in the correct wd folder when running this command.)
 
 
 **run this to start jupyter notebook session:**
@@ -24,7 +35,7 @@ OR
 docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my-jupyter-image
 ```
 
-
+# To do
 **Data grabbing**
 * Look up how to mkdir data/processed and data/raw. (since they are in the .gitignore)
 * change the data grabbing to .py files instead of ipynb.
@@ -39,24 +50,26 @@ docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my
 * link to headers/files when they are mentioned
 
 **Docker**
-* re-add latex pdf compiler 
-
-**Docker build image**
-* run: docker build -t my-jupyter-image .
-*my-jupyter-image* is the name of the image and . is the current folder. So make sure you're in the correct folder when running this. 
-
-**R-code**
- * look into r code working directory (inside docker)
+* Remove r & r-libraries from dockerimage
 
 **Jupyter notebook**
 * Look at ways to make it interactive and nice to use. 
+ * Maybe ipy widgets? for interactivity. 
 
-**Latex**
-* test dockerimage
-* add beamer template
-* add report template
- * maybe use bibler?
- * Which other latex libraries (?) will we use? 
+# Data
+The code in the main notebook requires two input CSV files. One with the benchmark portfolio returns and one with the returns for the **additional assets only**. 
+The structure of the CSVs needs to be.
+
+| Date       | industry_1 | industry_2 | ... | industry_n |
+|------------|------------|------------|-----|------------|
+| 2020-01-01 | 0.02       | 0.01       | ... | 0.03       |
+| ...        | ...        | ...        | ... | ...        |
+| 2023-04-04 | -0.2       | -0.15      |     | -0.05      |
+
+The data we have used can be downloaded by running the code in the [data grabbing notebook](src/data/GDLC_data.ipynb). The notebook also provides easy adjustment for:
+* Data range
+* Choice of industry portfolios (ken french)
+* Alteration of additional assets from yahoo finance
 
 
 
