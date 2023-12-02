@@ -1,6 +1,6 @@
 # crypto_mean_variance
 [![](https://img.shields.io/badge/go_to-course_homepage-blue)](https://github.com/ipozdeev/it-skills-for-research)
-[![](https://img.shields.io/badge/go_to-data_grabbing_notebook-yellow)](src/data/GDLC_data.ipynb)
+[![](https://img.shields.io/badge/go_to-data_grabbing_notebook-yellow)](src/data/data_grabbing.ipynb)
 [![](https://img.shields.io/badge/go_to-main_notebook-green)](notebooks/MAIN.ipynb)
 
 ---
@@ -10,10 +10,13 @@ UPDATE THIS
 
 # To do
 **Data grabbing**
-* Look up how to ensure the data folder is in git repository (or make it when running dockerfile)
-* re-add data folder to .gitignore
 * ken french data grabbing is suboptimal and takes approx 20 sec. --> check if time!
  * Data grabbing can get faster with paralell tasks --> concurrent.futures (feels a bit unneccessary for us)
+* Adjust yfinance data grabbign to grab from (start_data - 1), to avoid losing one day of data? Since industry is in return already
+* Clean up combining code in data_grabbing.ipynb
+* Change naming convention in data grabbing? (e.g. with *f* string in naming, and adding {count(tickers)} at end)
+ * This would make it easier when performing robustness checks, but also make it so that a reproducing user might need to look at the name of files when importing csv files in the MAIN notebook.
+
 
 **Docker**
 * Remove r & r-libraries from dockerimage
@@ -47,7 +50,7 @@ UPDATE THIS
 This is a brief walkthrough on the steps needed to reproduce our results. It will be followed by more conprehensive instructions for each of the steps. 
 1. Pull github repository
 2. Run project in docker container
-3. Run the cells in [data grabbing notebook](src/data/GDLC_data.ipynb).
+3. Run the cells in [data grabbing notebook](src/data/data_grabbing.ipynb).
 4. Run cells in [main notebook](/notebooks/MAIN.ipynb).
 
 ## Pull GitHub repository
@@ -77,7 +80,7 @@ docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my
 ```
 
 ## Data grabbing
-The code in the main notebook requires two input CSV files. 
+The code in the [main notebook](notebooks/MAIN.ipynb) requires two input CSV files. 
 * One with the benchmark portfolio returns 
 * One with the returns for the **additional assets only**. 
 
@@ -92,10 +95,10 @@ The structure of the CSVs needs to be:
 
 </center>
 
-The data we have used can be downloaded by running the code in the [data grabbing notebook](src/data/GDLC_data.ipynb). The notebook also provides easy adjustment for:
+The data we have used can be downloaded by running the code in the [data grabbing notebook](src/data/data_grabbing.ipynb). The notebook also provides easy adjustment for:
 * Date range
 * Choice of industry portfolios (ken french)
-* Alteration of additional assets from yahoo finance
+* Alteration of choice/amount of crypto currencies from yahoo finance
 
 
 
