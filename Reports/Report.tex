@@ -67,7 +67,19 @@ $$r_i = ln(\frac{P_t}{P_t-1})$$
 
 \noindent\textbf{Crypto's:} Imported the 5 largest crypto currencies based on market cap, source: Yahoo Finance.  
 
-\section{Results}\label{sec:result}
+\subsection{Frontier construction}
+The Sharpe-ratio of a security: 
+$$\textit{Sharpe Ratio} = \frac{E[r_i] - r_f}{\sigma(r_i)}$$
+
+\noindent The variance-covariance matrix of assets: 
+\[
+\text{Covariance Matrix:}
+\begin{bmatrix}
+    \sigma_{1}^2 & \sigma_{12} & \sigma_{13} \\
+    \sigma_{12} & \sigma_{2}^2 & \sigma_{23} \\
+    \sigma_{13} & \sigma_{23} & \sigma_{3}^2 \\
+\end{bmatrix}
+\]
 
 \section{Discussion}\label{sec:discussion}
 
@@ -77,9 +89,15 @@ Blah
 
 Blah blah
 
-\subsection{Future work}\label{sec:future}
+\subsection{Figures}\label{sec:future}
 
-Did you see what I wrote in Sec.~\ref{sec:intro}? Not too controversial I hope!
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figures/figure1.png}
+    \caption{Comparing the two mean-variance frontiers}
+    \label{fig:enter-label}
+\end{figure}
+
 
 \begin{figure}[htbp!]
 \begin{center}
