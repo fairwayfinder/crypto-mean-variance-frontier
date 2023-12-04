@@ -24,24 +24,11 @@ RUN mamba install --quiet --yes \
     'matplotlib' \
     'numpy' \
     'pandas' \
+    'pandas-datareader' \
     'scipy' \
     'seaborn' \
     'yfinance' \
     && mamba clean --all -f -y
-
-# Install R packages
-RUN mamba install --quiet --yes \
-    'r-base' \
-    'r-fportfolio' \
-    'r-fbasics' \
-    'r-fassets' \
-    'r-lubridate' \
-    'r-quantmod' \
-    'r-readr' \
-    'r-tidyr' \
-    'r-xml' \
-    # remove package installation caches etc, -f to avoid prompts, -y to answer yes to prompts. 
-    && mamba clean --all -f -y 
 
 # Switch back to the default jupyter user (jovyan), since its non-root
 USER $NB_UID
