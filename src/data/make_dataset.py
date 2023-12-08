@@ -1,30 +1,14 @@
-# -*- coding: utf-8 -*-
-import click
-import logging
-from pathlib import Path
-from dotenv import find_dotenv, load_dotenv
+import subprocess # allows to execute scripts
+# script to execute the data fetching and processing of data for dataset.csv
 
+def run_script(script_path): # defining this just to make main() cleaner
+    subprocess.run(["python", script_path], check=True)
 
-@click.command()
-@click.argument('input_filepath', type=click.Path(exists=True))
-@click.argument('output_filepath', type=click.Path())
-def main(input_filepath, output_filepath):
-    """ Runs data processing scripts to turn raw data from (../raw) into
-        cleaned data ready to be analyzed (saved in ../processed).
-    """
-    logger = logging.getLogger(__name__)
-    logger.info('making final data set from raw data')
+def main():
+    run_script('fetch_data_ken-french.py')
+    run_script('fetch_data_yfinance.py')
+    run_script('process_data.py')
 
+if __name__ == "__main__":
+    main() # check if scripts is being run directly, if so calls main() function.
 
-if __name__ == '__main__':
-    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(level=logging.INFO, format=log_fmt)
-
-    # not used in this stub but often useful for finding various files
-    project_dir = Path(__file__).resolve().parents[2]
-
-    # find .env automagically by walking up directories until it's found, then
-    # load up the .env entries as environment variables
-    load_dotenv(find_dotenv())
-
-    main()

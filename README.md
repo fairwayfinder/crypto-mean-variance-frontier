@@ -10,27 +10,17 @@ UPDATE THIS
 
 # To do
 **Data grabbing**
-* ken french data grabbing is suboptimal and takes approx 20 sec. --> check if time!
- * Data grabbing can get faster with paralell tasks --> concurrent.futures (feels a bit unneccessary for us)
-* Adjust yfinance data grabbign to grab from (start_data - 1), to avoid losing one day of data? Since industry is in return already
-* Clean up combining code in data_grabbing.ipynb
+* add some kind of "estimated time" to make_dataset.py ? 
 * Change naming convention in data grabbing? (e.g. with *f* string in naming, and adding {count(tickers)} at end)
  * This would make it easier when performing robustness checks, but also make it so that a reproducing user might need to look at the name of files when importing csv files in the MAIN notebook.
-
+* Maybe replace config.py with a JSON file --> data grabbing script will be a bit messier though
 
 **Docker**
-* Remove r & r-libraries from dockerimage
+* Check if compiling of beamer works
 
 **Jupyter notebook**
 * Look at ways to make it interactive and nice to use. 
  * Maybe ipy widgets? for interactivity. 
-
- **General**
- * Clean up files / folders
-
-**Latex**
-* Make sure the compiler works with our bibtex thing
-
 
 # TABLE OF CONTENTS
 [Short step-by-step guide](#short-step-by-step) \
