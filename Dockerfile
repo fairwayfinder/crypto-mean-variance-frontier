@@ -1,5 +1,5 @@
-# Starting from Jupyter r-notebook image
-FROM jupyter/r-notebook
+# Starting from Jupyter base image, maybe switch to scipy but will bloat our image a bit. 
+FROM jupyter/base-notebook
 
 #Switch to the root user to install packages
 USER root
@@ -18,30 +18,16 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Install python 3 packages
+# Install python 3 packages --> could add specific version numbers, 
 RUN mamba install --quiet --yes \
-    'python=3.11' \
     'matplotlib' \
     'numpy' \
     'pandas' \
+    'pandas-datareader' \
     'scipy' \
     'seaborn' \
     'yfinance' \
     && mamba clean --all -f -y
-
-# Install R packages
-RUN mamba install --quiet --yes \
-    'r-base' \
-    'r-fportfolio' \
-    'r-fbasics' \
-    'r-fassets' \
-    'r-lubridate' \
-    'r-quantmod' \
-    'r-readr' \
-    'r-tidyr' \
-    'r-xml' \
-    # remove package installation caches etc, -f to avoid prompts, -y to answer yes to prompts. 
-    && mamba clean --all -f -y 
 
 # Switch back to the default jupyter user (jovyan), since its non-root
 USER $NB_UID
