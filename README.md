@@ -18,6 +18,7 @@ UPDATE THIS
 
 **Docker**
 * Check if compiling of beamer works
+* add seaborne to image
 
 **Jupyter notebook**
 * Look at ways to make it interactive and nice to use. 
@@ -38,6 +39,7 @@ This is a brief walkthrough on the steps needed to reproduce our results. It wil
 2. Open project in docker container
 3. Run [make_dataset.py](src/data/make_dataset.py) to grab data.
 4. Run cells in [main notebook](/notebooks/MAIN.ipynb).
+5. Use LaTeX compiler to make PDF of Report & Beamer
 
 ## Pull GitHub repository
 Pull the GitHub repository to desired directory:
@@ -69,6 +71,8 @@ docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my
 The code in the [main notebook](notebooks/MAIN.ipynb) requires two input CSV files. 
 * One with the benchmark portfolio returns 
 * One with the returns for the **additional assets only**. 
+
+<span style="color:red"> **THIS IS CHANGED, YOU NEED ONE CSV WITH ALL DATA**</span>.
 
 The structure of the CSVs needs to be:
 <center>
