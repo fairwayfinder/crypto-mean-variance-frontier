@@ -10,6 +10,7 @@ UPDATE THIS
 
 # To do
 **Data grabbing**
+* <span style="color:red"> **Update datagrabbing part of README**</span>.
 * add some kind of "estimated time" to make_dataset.py ? 
 * Change naming convention in data grabbing? (e.g. with *f* string in naming, and adding {count(tickers)} at end)
  * This would make it easier when performing robustness checks, but also make it so that a reproducing user might need to look at the name of files when importing csv files in the MAIN notebook.
@@ -28,19 +29,14 @@ UPDATE THIS
 [Build Docker image](#build-docker-image) \
 [Run Docker container](#run-docker-container) \
 [Grab data](#data-grabbing) \
-[Compile LaTeX report](#Latex-compiler) \
-\
-\
-\
-[To-do rm later](#to-do)
-
+[Compile LaTeX report](#latex-compiler) 
 
 
 # Short step by step
 This is a brief walkthrough on the steps needed to reproduce our results. It will be followed by more conprehensive instructions for each of the steps. 
 1. Pull github repository
-2. Run project in docker container
-3. Run the cells in [data grabbing notebook](src/data/data_grabbing.ipynb).
+2. Open project in docker container
+3. Run [make_dataset.py](src/data/make_dataset.py) to grab data.
 4. Run cells in [main notebook](/notebooks/MAIN.ipynb).
 
 ## Pull GitHub repository
@@ -89,6 +85,18 @@ The data we have used can be downloaded by running the code in the [data grabbin
 * Date range
 * Choice of industry portfolios (ken french)
 * Alteration of choice/amount of crypto currencies from yahoo finance
+
+## LaTeX compiler
+* Add syntax needed to compile
+* Check with sanders if we're using bibtex or biber (only )
+
+
+```bash
+xelatex file.tex
+bibtex file.aux
+xelatex file.tex
+xelatx file.tex
+```
 
 
 
