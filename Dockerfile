@@ -1,5 +1,5 @@
-# Starting from Jupyter r-notebook image
-FROM jupyter/r-notebook
+# Starting from Jupyter base image, maybe switch to scipy but will bloat our image a bit. 
+FROM jupyter/base-notebook
 
 #Switch to the root user to install packages
 USER root
@@ -18,9 +18,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Install python 3 packages
+# Install python 3 packages --> could add specific version numbers, 
 RUN mamba install --quiet --yes \
-    'python=3.11' \
     'matplotlib' \
     'numpy' \
     'pandas' \
