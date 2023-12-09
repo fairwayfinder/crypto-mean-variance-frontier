@@ -43,11 +43,11 @@ This is a brief walkthrough on the steps needed to reproduce our results. It wil
 ## Pull GitHub repository
 Pull the GitHub repository to desired directory:
 ```bash
-Do we need this ?
+git clone https://github.com/fairwayfinder/crypto-mean-variance-frontier.git
 ```
 
 ## Build docker image
-Build the docker image with the provided Dockerfile:
+Build the docker image with the provided Dockerfile (approximately 8 min):
 ```bash
 docker build -t my-jupyter-image .
 ```
