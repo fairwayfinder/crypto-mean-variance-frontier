@@ -7,6 +7,9 @@ import textwrap # Do we really need this? maybe just make a sub title?
 import seaborn as sns
 import sys
 
+import concurrent.futures
+
+
 def annualize_rets(r, periods_per_year):
     compounded_growth = (1+r).prod()
     n_periods = r.shape[0]
@@ -41,10 +44,28 @@ def minimize_vol(target_return, er, cov):
                        bounds=bounds)
     return weights.x
 
+
+def minimize_vol_for_target_return(target_return, er, cov):
+    """
+    Helper function for parallel processing in optimal_weights.
+    This function needs to be at the top level to be picklable.
+    """
+    return minimize_vol(target_return, er, cov)
+
 def optimal_weights(n_points, er, cov):
     target_rs = np.linspace(er.min(), er.max(), n_points)
-    weights = [minimize_vol(target_return, er, cov) for target_return in target_rs]
-    return weights
+
+    # Using ProcessPoolExecutor to parallelize the optimization
+    with concurrent.futures.ProcessPoolExecutor() as executor:
+        # Pass er and cov as additional arguments
+        weights = executor.map(minimize_vol_for_target_return, target_rs, [er]*n_points, [cov]*n_points)
+
+    return list(weights)
+
+# def optimal_weights(n_points, er, cov):
+#     target_rs = np.linspace(er.min(), er.max(), n_points)
+#     weights = [minimize_vol(target_return, er, cov) for target_return in target_rs]
+#     return weights
 
 def portfolio_vol(weights, covmat):
     return (weights.T @ covmat @ weights)**0.5
