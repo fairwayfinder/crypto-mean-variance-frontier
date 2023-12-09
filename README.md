@@ -10,17 +10,16 @@ UPDATE THIS
 
 # To do
 **Data grabbing**
-* <span style="color:red"> **Update datagrabbing part of README**</span>.
-* add some kind of "estimated time" to make_dataset.py ? 
+* <span style="color:red"> **Add some kind of progress/confirmation to make_dataset.py**</span>. 
 * Change naming convention in data grabbing? (e.g. with *f* string in naming, and adding {count(tickers)} at end)
  * This would make it easier when performing robustness checks, but also make it so that a reproducing user might need to look at the name of files when importing csv files in the MAIN notebook.
 * Maybe replace config.py with a JSON file --> data grabbing script will be a bit messier though
 
 **Docker**
 * Check if compiling of beamer works
-* add seaborne to image
 
 **Jupyter notebook**
+* Improve the look to prevent eyes from bleeding
 * Look at ways to make it interactive and nice to use. 
  * Maybe ipy widgets? for interactivity. 
 
@@ -68,38 +67,39 @@ docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my
 ```
 
 ## Data grabbing
-The code in the [main notebook](notebooks/MAIN.ipynb) requires two input CSV files. 
-* One with the benchmark portfolio returns 
-* One with the returns for the **additional assets only**. 
+### Reproducing data
+To reproduce the data in our report, you can run [make_dataset.py](/src/data/make_dataset.py). Please make sure that you're in the */src/data* directory when you run the script. 
 
-<span style="color:red"> **THIS IS CHANGED, YOU NEED ONE CSV WITH ALL DATA**</span>.
+### Modifying data
+It's possible to make adjustments in [config.py](src/data/config.py) for:
+* Date range.
+* Choice of industry portfolios (ken french).
+* choice of crypto curencies. 
 
-The structure of the CSVs needs to be:
+### To use own data:
+The code in the [main notebook](notebooks/MAIN.ipynb) requires a CSV *dataset.csv* with the following structure:
+
 <center>
 
-| Date       | industry_1 | industry_2 | ... | industry_n |
-|------------|------------|------------|-----|------------|
-| 2020-01-01 | 0.02       | 0.01       | ... | 0.03       |
-| ...        | ...        | ...        | ... | ...        |
-| 2023-04-04 | -0.2       | -0.15      |     | -0.05      |
+| Date       | industry_1 | industry_2 | ... | industry_n | crypto_1 | ... | crypto_n |
+|------------|------------|------------|-----|------------|----------|-----|----------|
+| 2020-01-01 | 0.02       | 0.01       | ... | 0.3        | 0.05     | ... | 0.04     |
+| ...        | ...        | ...        | ... | ...        | ...      | ... | ...      |
+| 2023-04-04 | -0.11      | -0.15      | ... | -0.05      | -0.3     | ... | -0.22    |
 
 </center>
 
-The data we have used can be downloaded by running the code in the [data grabbing notebook](src/data/data_grabbing.ipynb). The notebook also provides easy adjustment for:
-* Date range
-* Choice of industry portfolios (ken french)
-* Alteration of choice/amount of crypto currencies from yahoo finance
+Additionally: A list of the crypto column names (`TICKERS_CRYPTO`) need to be defined in [main notebook](notebooks/MAIN.ipynb).
+
 
 ## LaTeX compiler
-* Add syntax needed to compile
-* Check with sanders if we're using bibtex or biber (only )
-
+To compile the latex report into PDF, please use the following lines of code:
 
 ```bash
-xelatex file.tex
-bibtex file.aux
-xelatex file.tex
-xelatx file.tex
+xelatex report.tex
+bibtex report.aux
+xelatex report.tex
+xelatx report.tex
 ```
 
 
