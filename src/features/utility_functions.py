@@ -1,3 +1,12 @@
+import numpy as np
+import pandas as pd
+import scipy 
+import scipy.optimize as opt
+import matplotlib.pyplot as plt
+import textwrap # Do we really need this? maybe just make a sub title?
+import seaborn as sns
+import sys
+
 def annualize_rets(r, periods_per_year):
     compounded_growth = (1+r).prod()
     n_periods = r.shape[0]
