@@ -19,4 +19,4 @@ for ticker in TICKERS_CRYPTO:
     else: # i.e. the subsequent iterations
         crypto_prices = crypto_prices.join(price, how="outer") # missing values would be NaN
 
-crypto_prices.to_csv(f'../../data/crypto_prices.csv')
+crypto_prices.to_csv(f'../../data/raw/crypto_prices.csv')

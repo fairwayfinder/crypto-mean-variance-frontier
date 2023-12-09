@@ -4,8 +4,8 @@
 import pandas as pd
 import numpy as np
 
-industry_returns = pd.read_csv('../../data/industry_returns.csv', parse_dates=True, index_col='Date')
-crypto_prices = pd.read_csv('../../data/crypto_prices.csv', parse_dates=True, index_col='Date')
+industry_returns = pd.read_csv('../../data/raw/industry_returns.csv', parse_dates=True, index_col='Date')
+crypto_prices = pd.read_csv('../../data/raw/crypto_prices.csv', parse_dates=True, index_col='Date')
 
 # Reindex crypto prices to only include dates that are present in industry returns
 aligned_crypto_prices = crypto_prices.reindex(industry_returns.index)
@@ -15,4 +15,4 @@ crypto_returns = aligned_crypto_prices.pct_change() # computing returns
 crypto_returns = crypto_returns[1:] #removing first NaN row
 
 dataset = pd.merge(industry_returns, crypto_returns, on='Date', how='inner') # inner join to ensure only including matching dates
-dataset.to_csv('../../data/dataset.csv')
+dataset.to_csv('../../data/processed/industry_crypto_returns.csv')
