@@ -8,3 +8,7 @@
 # Ignore files in raw and processed directorie
 raw/**
 processed/**
+
+#
+!raw/.gitkeep
+!processed/.gitkeep
