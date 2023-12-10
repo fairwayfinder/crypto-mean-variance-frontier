@@ -57,7 +57,7 @@ To reproduce the data in our report, you can run [make_dataset.py](/src/data/mak
 It's possible to make adjustments in [config.py](src/data/config.py) for:
 * Date range.
 * Choice of industry portfolios (ken french).
-* choice of crypto curencies. 
+* Choice of crypto curencies. 
 
 ### To use own data:
 The code in the [main notebook](notebooks/MAIN.ipynb) requires a CSV *industry_crypto_returns.csv* located in [data/processed](data/processed/) with the following structure:
