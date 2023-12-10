@@ -75,7 +75,5 @@ def plot_efficient_frontier_widget(start_date, end_date, ind_crypto):
         #ylim=(0.055, 0.12)
     )
 
-    plt.savefig("../Reports/figures/Efficient_Frontier_Comparison.png")
-
     plt.show()
 
