@@ -1,22 +1,11 @@
 # crypto_mean_variance
-[![](https://img.shields.io/badge/go_to-course_homepage-blue)](https://github.com/ipozdeev/it-skills-for-research)
-[![](https://img.shields.io/badge/go_to-data_grabbing_notebook-yellow)](src/data/data_grabbing.ipynb)
 [![](https://img.shields.io/badge/go_to-main_notebook-green)](notebooks/MAIN.ipynb)
+[![](https://img.shields.io/badge/go_to-course_homepage-blue)](https://github.com/ipozdeev/it-skills-for-research)
 
 ---
-
-We're researching if the way crypto currienciemean variance efficient frontier
-UPDATE THIS
+*In this project we will investigate if cryptocurrencies extend the mean-variance frontier of an equity investor. By using an industry portfolio dataset consisting of 12 different industries collected from Kenneth French data library combined with the 3 largest cryptocurrencies based on market capitalization, we extract the mean-variance frontier. We show that adding cryptocurrencies to the mean-variance frontier has a significant impact.*
 
 # To do
-**Data grabbing**
-* <span style="color:red"> **Add some kind of progress/confirmation to make_dataset.py**</span>. 
-* Change naming convention in data grabbing? (e.g. with *f* string in naming, and adding {count(tickers)} at end)
- * This would make it easier when performing robustness checks, but also make it so that a reproducing user might need to look at the name of files when importing csv files in the MAIN notebook.
-* Maybe replace config.py with a JSON file --> data grabbing script will be a bit messier though
-
-**Docker**
-* Check if compiling of beamer works
 
 **Jupyter notebook**
 * Improve the look to prevent eyes from bleeding
@@ -36,9 +25,9 @@ UPDATE THIS
 This is a brief walkthrough on the steps needed to reproduce our results. It will be followed by more conprehensive instructions for each of the steps. 
 1. Pull github repository
 2. Open project in docker container
-3. Run [make_dataset.py](src/data/make_dataset.py) to grab data.
+3. Run [make_dataset.py](src/data/make_dataset.py) to grab data (you need to be in */src/data* when running the script).
 4. Run cells in [main notebook](/notebooks/MAIN.ipynb).
-5. Use LaTeX compiler to make PDF of Report & Beamer
+5. Use LaTeX compiler (xelatex) to make PDF of Report & Beamer
 
 ## Pull GitHub repository
 Pull the GitHub repository to desired directory:
@@ -60,12 +49,6 @@ Run the following code to mount the working directory inside the container to ou
 docker run -p 8888:8888 -v $(pwd):/workspace -e JUPYTER_ENABLE_LAB=yes -w /workspace -e JUPYTER_TOKEN='' my-jupyter-image
 ```
 
-OR
-
-```bash
-docker run -p 8888:8888 -v $(pwd):/home/jovyan/work -e JUPYTER_ENABLE_LAB=yes my-jupyter-image
-```
-
 ## Data grabbing
 ### Reproducing data
 To reproduce the data in our report, you can run [make_dataset.py](/src/data/make_dataset.py). Please make sure that you're in the */src/data* directory when you run the script. 
@@ -77,7 +60,7 @@ It's possible to make adjustments in [config.py](src/data/config.py) for:
 * choice of crypto curencies. 
 
 ### To use own data:
-The code in the [main notebook](notebooks/MAIN.ipynb) requires a CSV *dataset.csv* with the following structure:
+The code in the [main notebook](notebooks/MAIN.ipynb) requires a CSV *industry_crypto_returns.csv* located in [data/processed](data/processed/) with the following structure:
 
 <center>
 
@@ -96,27 +79,26 @@ Additionally: A list of the crypto column names (`TICKERS_CRYPTO`) need to be de
 To compile the latex report into PDF, please use the following lines of code:
 
 ```bash
-xelatex report.tex
-bibtex report.aux
-xelatex report.tex
-xelatx report.tex
+xelatex Report.tex
+bibtex Report.aux
+xelatex Report.tex
+xelatx Report.tex
 ```
+The same sequence of code can then be run on *Beamer.tex* to compile the beamer. 
 
+The [cleanup.sh](Reports/cleanup.sh) script in [Reports/](Reports/) can be used to clean up the auxiliary files created by the compiler. The following code can be run while in the [Reports/](Reports/) to give the script permission to execute and then run the script:
 
-
-
-
-
+```bash
+chmod +x cleanup.sh
+./cleanup.sh 
+```
 
 Project Organization
 ------------
 
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
