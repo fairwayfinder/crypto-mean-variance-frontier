@@ -8,11 +8,12 @@
 % \renewcommand{\baselinestretch}{1.5}  % Uncomment for 1.5 spacing between lines.
 \parindent 8.4pt  % Sets leading space for paragraphs.
 \usepackage[font=sf]{caption} % Changes font of captions.
-
+\usepackage{natbib}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{siunitx}
+\usepackage{float}
 \usepackage{verbatim}
 \usepackage{hyperref} % Required for inserting clickable links.
 \usepackage{natbib} % Required for APA-style citations.
@@ -22,25 +23,37 @@
 \author{Sander Naerum, Thomas Pietsch and Ziga Jagodnik}
 
 \begin{document}
+\pagenumbering{gobble} %disable page numbering
+
 \maketitle
 
+%adding some space
+\vspace{1cm}
+
 \begin{abstract}
-In this project we will investigate if cryptocurrencies extend the mean-variance frontier of an equity investor. 
-By using an industry portfolio dataset consisting of 12 different industries collected from Kenneth French website 
-combined with “” cryptocurrency index, we extract the mean-variance frontier. We show that adding cryptocurrencies to 
-the mean-variance frontier do not have a significant impact.  
+\noindent In this project we will investigate if cryptocurrencies extend the mean-variance frontier of an equity investor. 
+By using an industry portfolio dataset consisting of 12 different industries collected from Kenneth French data library 
+combined with the 3 largest cryptocurrencies based on market capitalization, we extract the mean-variance frontier. 
+We show that adding cryptocurrencies to the mean-variance frontier has a significant impact.
+
 \end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
 \section{Introduction}\label{sec:intro}
 The mean-variance frontier is a mathematical framework for building portfolios that aim to maximize expected returns 
-while controlling a set level of risk. This concept extends diversification in investing, highlighting that owning 
-diverse financial assets is less risky than focusing on a single asset class. The key idea is that an asset's risk and 
-return should be evaluated in the context of its contribution to the overall risk and return of a diversified portfolio. 
-Historical asset price variance is used as a proxy for estimating future risk in the mean-variance frontier.
+while controlling a set level of risk. This concept extends diversification in investing, highlighting that owning diverse 
+financial assets is less risky than focusing on a single asset class. The key idea is that an asset's risk and return should 
+be evaluated in the context of its contribution to the overall risk and return of a diversified portfolio. Historical asset 
+price variance is used as a proxy for estimating future risk in the mean-variance frontier.
 
-In the evolving landscape of financial assets, the integration of cryptocurrencies adds a new dimension to portfolio 
-construction. Cryptocurrencies, such as Bitcoin and Ethereum, bring unique characteristics and opportunities to the mix. 
-Therefore, it is interesting to explore if this new universe of assets can enhance portfolio diversification. 
+\noindent In the evolving landscape of financial assets, the integration of cryptocurrencies adds a new dimension to portfolio
+ construction. Cryptocurrencies, such as Bitcoin and Ethereum, bring unique characteristics and opportunities to the mix. 
+ Therefore, it is interesting to explore if this new universe of assets can enhance portfolio diversification. 
 
 \section{Methodology}\label{sec:methods}
 \subsection{Assumptions under the MPT}
@@ -51,45 +64,129 @@ Therefore, it is interesting to explore if this new universe of assets can enhan
 \item Investment returns are assumed to follow a normal distribution.
 \item Only returns, variances, and covariances are needed to calculate the optimal portfolio.
 \item No transaction costs or taxes.
-\item We assume the risk-free rate to be equal to the current 3m Treasury yield of "", and all investors can borrow and lend at this rate. 
+\item All investors can borrow and lend at the same rate. 
 \end{itemize}
 The mean-variance analysis is used to identify optimal/efficient portfolios.
 
+\subsection{Data}
+\textbf{Equity data:} Kenneth French website, 12 industry portfolios. The assets whithin the industry portfolios are equally 
+weighted and the data downloaded have daily frequency. 
+
+\noindent\textbf{Crypto's:} Imported the 3 largest crypto currencies based on market cap, source: Yahoo Finance. Can also be
+ extended in the data grabbing. Crypto data is dowloaded with daily frequency.  
+
+\noindent \textbf{Caveat:} We only have data from 2017-2023 on the cryptocurrencies. Ideally, to conlude that cryptocurrencies
+ actually extends the mean-variance frontier of an equity investor we would want a data on a longer time frame.    
+
 \subsection{Return calculations}
-The data downloaded from Kenneth French's website is already calculated as simple returns, however, in this paper we will use the log returns of the assets. To convert the simple returns to log, we use the following formula: 
-$$r_i = ln(1+r_i)$$
+The data downloaded from Kenneth French's website is already calculated as simple returns, and are given in percentage terms. 
+To convert them to percentage points we divide them by 100.  
 
-\noindent For the data on the crypto prices downloaded from yahoo finance we use the following formula to obtain the log returns: 
-$$r_i = ln(\frac{P_t}{P_t-1})$$
+\noindent For the data on the crypto prices downloaded from yahoo finance we use the following formula to obtain the simple 
+returns: 
+$$r_t = \frac{P_t-P_{t-1}}{P_{t-1}}$$
 
-\section{Data}\label{sec:result}
-\textbf{Equity data:} Kenneth French website, 12 industry portfolios. 
+\subsection{Frontier construction}
+\textbf{Consider a three asset portfolio}
 
-\noindent\textbf{Crypto's:} Imported the 5 largest crypto currencies based on market cap, source: Yahoo Finance.  
+Expected return of a portfolio:
+$$E(R_p) = w_AE(R_A) + w_BE(R_B) + w_CE(R_c)$$
 
-\section{Results}\label{sec:result}
+Portfolio variance: 
+\begin{align*} % remove the asterisk to make the equation numbered
+\sigma^2_p = & \, w^2_A\sigma^2_A + w^2_B\sigma^2_B + w^2_C\sigma^2_C \\
+            & + 2w_A w_B\sigma_A\sigma_B\rho_{AB} \\
+            & + 2w_A w_C\sigma_A\sigma_C\rho_{AC} \\
+            & + 2w_B w_C\sigma_B\sigma_C\rho_{BC}
+\end{align*}
 
-\section{Discussion}\label{sec:discussion}
 
-Blah
+The variance-covariance matrix of assets: 
+\[
+\text{Covariance Matrix:}
+\begin{bmatrix}
+    \sigma_{1}^2 & \sigma_{12} & \sigma_{13} \\
+    \sigma_{12} & \sigma_{2}^2 & \sigma_{23} \\
+    \sigma_{13} & \sigma_{23} & \sigma_{3}^2 \\
+\end{bmatrix}
+\]
 
-\subsection{Limitations}\label{sec:limitations}
+\noindent The mean-variance frontier is found by minimizing the term from (\ref{eq:1}, where $q$ is a given risk tolerance 
+factor for an investor, $w$ is a vector of portfolio weights which can also allow for negative values (short). $R$ is a 
+expected return vector, and $\sum$ is the variance-covariance matrix. $w^T\sum w$ is the variance of the portfolio return 
+and $R^Tw$ is the portfolio's expected return.\cite{wikiref}
+\begin{equation}\label{eq:1}
+ w^T\sum w - q \cdot R^Tw    
+\end{equation}
 
-Blah blah
+\noindent The optimization mentioned above identifies a specific point on the efficient frontier. This point corresponds to 
+the inverse of the slope of the frontier, that would be $q$, considering a scenario where portfolio return variance is plotted
+ horizontally instead of standard deviation. The frontier is parametric on $q$.\cite{wikiref}
 
-\subsection{Future work}\label{sec:future}
+\section{Analysis}\label{sec:analysis}
+\subsection{Correlations}
 
-Did you see what I wrote in Sec.~\ref{sec:intro}? Not too controversial I hope!
-
-\begin{figure}[htbp!]
-\begin{center}
-\includegraphics[width=0.5\columnwidth]{venn_discoveries.pdf}
-\end{center}
-\caption{Yes, put a few words or sentences here explaining what is in the figure.}
-\label{fig:venn}
+From the figure we can conclude that cryptocurrencies have relatively low correlation to the equities and high correlation 
+amongst each other. Low correlation would imply that crypto's serves as a good option for diversification for an equity 
+investor. However, the small sample size would have to be taken into consideration. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{Figures/heatmap_correlation.png}
+    \caption{Correlations between assets for the full sample}
+    \label{fig:correlations}
 \end{figure}
 
+\subsection{Sharpe Ratio's}
+The Sharpe ratio is defined as: 
+$$SR = \frac{E(R_p)-rf}{\sigma_p}$$
+
+\noindent In the Sharpe ratio plot cryptocurrencies are plotted in blue and equities in light blue. From the plot we can 
+tell that two of the cryptocurrencies (BTC and ETH) are top performers. The Sharpe ratio meausures the excess return you 
+get per unit of risk, which also makes it a good proxy as a performance measure. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{Figures/SR_Entire_Sample.png}
+    \caption{Sharpe Ratio's for all assets (full sample)}
+    \label{fig:Sharpe}
+\end{figure}
+
+
+\section{Results}\label{sec:results}
+
+\subsection{Full Sample}\label{sec:full sample}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{Figures/Efficient_Frontier_Comparison_Full_Sample.png}
+    \caption{Comparing the two mean-variance frontiers (full sample)}
+    \label{fig:full}
+\end{figure}
+
+\subsection{Restricted Sample}\label{sec:restricted sample}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{Figures/Efficient_Frontier_Comparison_Bull_Market.png}
+    \caption{Comparing the two mean-variance frontiers (restricted sample)}
+    \label{fig:restricted}
+\end{figure}
+
+\section{Conclusion}\label{sec:discussion}
+The inclusion of cryptocurrencies in an investment portfolio extends the mean-variance frontier for an equity investor, 
+introducing a new dimension to diversification strategies and expanding the spectrum of risk and return possibilities. 
+However, the application of modern portfolio theory as a trading strategy is not without criticism. 
+
+\noindent One major critique involves the assumption of normality in MPT, which may not accurately capture the high 
+volatility and non-normally distributed returns often exhibited by cryptocurrencies. Additionally, the static nature 
+of expected returns, variances, and covariances in the model might not fully account for the dynamic nature of rapidly 
+evolving cryptocurrency markets. The sensitivity of optimal portfolio allocations to input parameters is another concern, 
+as small changes in estimates can lead to significant shifts in portfolio composition.
+
+\noindent Furthermore, the efficiency assumption of market prices in MPT may be challenged in the context of cryptocurrencies, 
+where markets may be less mature and subject to information asymmetry.
+
+\section{Bibliography}\label{sec:bibliography}
+
 \bibliographystyle{apalike}
-\bibliography{example}
+\bibliography{Bibliography/Biblio}
 
 \end{document}
