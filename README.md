@@ -1,16 +1,12 @@
-# crypto_mean_variance
+# Do cryptocurrencies extend the mean-variance frontier of an equity investor?
 [![](https://img.shields.io/badge/go_to-main_notebook-green)](notebooks/MAIN.ipynb)
 [![](https://img.shields.io/badge/go_to-course_homepage-blue)](https://github.com/ipozdeev/it-skills-for-research)
 
 ---
-*In this project we will investigate if cryptocurrencies extend the mean-variance frontier of an equity investor. By using an industry portfolio dataset consisting of 12 different industries collected from Kenneth French data library combined with the 3 largest cryptocurrencies based on market capitalization, we extract the mean-variance frontier. We show that adding cryptocurrencies to the mean-variance frontier has a significant impact.*
+*In this project we investigate if cryptocurrencies extend the mean-variance frontier of an equity investor. By using an industry portfolio dataset consisting of 12 different industries collected from Kenneth French data library combined with the 3 largest cryptocurrencies based on market capitalization, we extract the mean-variance frontier. We show that adding cryptocurrencies to the mean-variance frontier has a significant impact.*
 
-# To do
-
-**Jupyter notebook**
-* Improve the look to prevent eyes from bleeding
-* Look at ways to make it interactive and nice to use. 
- * Maybe ipy widgets? for interactivity. 
+# To do:
+<span style="color:crimson"> **UPDATE FILES STRUCTURE TREE AT END OF README**</span>
 
 # TABLE OF CONTENTS
 [Short step-by-step guide](#short-step-by-step) \
@@ -96,24 +92,19 @@ chmod +x cleanup.sh
 Project Organization
 ------------
 
-    ├── LICENSE
     ├── README.md          <- The top-level README for developers using this project.
+    │   
+    │   
     ├── data
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
+    │   
+    │ 
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
+    ├── Reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
+    │   └── Figures        <- Generated graphics and figures to be used in reporting
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
