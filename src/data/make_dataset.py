@@ -1,5 +1,5 @@
 import subprocess # allows to execute scripts
-# script to execute the data fetching and processing of data for dataset.csv
+# script to execute the data fetching and processing of data to industry_crypto_returns.csv
 
 def run_script(script_path): # defining this just to make main() cleaner
     print(f'Running: {script_path}')

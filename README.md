@@ -5,9 +5,6 @@
 ---
 *In this project we investigate if cryptocurrencies extend the mean-variance frontier of an equity investor. By using an industry portfolio dataset consisting of 12 different industries collected from Kenneth French data library combined with the 3 largest cryptocurrencies based on market capitalization, we extract the mean-variance frontier. We show that adding cryptocurrencies to the mean-variance frontier has a significant impact.*
 
-# To do:
-<span style="color:crimson"> **UPDATE FILES STRUCTURE TREE AT END OF README**</span>
-
 # TABLE OF CONTENTS
 [Short step-by-step guide](#short-step-by-step) \
 [Pull GitHub repository](#pull-github-repository) \
@@ -52,7 +49,6 @@ To reproduce the data in our report, you can run [make_dataset.py](/src/data/mak
 ### Modifying data
 It's possible to make adjustments in [config.py](src/data/config.py) for:
 * Date range.
-* Choice of industry portfolios (ken french).
 * Choice of crypto curencies. 
 
 ### To use own data:
@@ -92,45 +88,42 @@ chmod +x cleanup.sh
 Project Organization
 ------------
 
-    ├── README.md          <- Instructions on how to replicate the project
-    │   
-    │   
+```
+├── Dockerfile
+│
+├── README.md                           <- Instructions for reproducing our research
+│
+├── Reports
+│   ├── Beamer.pdf
+│   ├── Beamer.tex
+│   ├── Figures                         <- Figures from MAIN.ipynb for Report & Beamer
+│   ├── References.bib
+│   ├── Report.pdf
+│   ├── Report.tex
+│   └── cleanup.sh                      <- Bash cleanup script for latex auxiliary files
+│
+├── data
+│   ├── processed
+│   └── raw
+│
+├── notebooks
+│   └── MAIN.ipynb                      <- Main notebook for research project
+│
+├── requirements.txt                    <- Python libraries used in project
+│
+└── src
     ├── data
-    │   ├── processed      
-    │   └── raw             
-    │   
-    │ 
-    ├── notebooks          <- Contains MAIN.py, the main notebook for this project
+    │   ├── config.py
+    │   ├── fetch_data_ken-french.py
+    │   ├── fetch_data_yfinance.py
+    │   ├── make_dataset.py             <- Python script to run data grabbing & data processing scripts
+    │   └── process_data.py
     │
+    ├── features
+    │   └── utility_functions.py        <- Custom functions used in MAIN.ipynb
     │
-    ├── Reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── Figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── src                <- Source code for use in this project.
-    │   │
-    │   ├── data           <- Scripts to download data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
-
-
---------
-
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+    └── visualization
+        └── plotting_functions.py       <- Functions for plotting efficient frontier
+```
 
 
