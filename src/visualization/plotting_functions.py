@@ -38,8 +38,8 @@ def plot_ef(er, cov, er2, cov2, xlim=None, ylim=None):
     })
 
     # Plotting both efficient frontiers on the same graph
-    ax = ef1.plot.line(x="Volatility", y="Returns", style='.-', label='Industry portfolio without cryptocurrencies', color='b', marker='o', markersize=3)
-    ef2.plot.line(x="Volatility", y="Returns", style='.-', ax=ax, label='Industry portfolio with cryptocurrencies', color='r', marker='s', markersize=3)
+    ax = ef1.plot.line(x="Volatility", y="Returns", style='-', label='Industry portfolio without cryptocurrencies', color='b', marker='o', markersize=3)
+    ef2.plot.line(x="Volatility", y="Returns", style='-', ax=ax, label='Industry portfolio with cryptocurrencies', color='r', marker='s', markersize=3)
 
     # Set axis limits if provided
     if xlim:
