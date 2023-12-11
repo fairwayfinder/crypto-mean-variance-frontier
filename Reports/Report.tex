@@ -32,7 +32,7 @@
 
 \begin{abstract}
 \noindent In this project we will investigate if cryptocurrencies extend the mean-variance frontier of an equity investor. 
-By using an industry portfolio dataset consisting of 12 different industries collected from Kenneth French data library 
+By using an industry portfolio data set consisting of 12 different industries collected from Kenneth French data library 
 combined with the 3 largest cryptocurrencies based on market capitalization, we extract the mean-variance frontier. 
 We show that adding cryptocurrencies to the mean-variance frontier has a significant impact.
 
@@ -45,11 +45,11 @@ We show that adding cryptocurrencies to the mean-variance frontier has a signifi
 \setcounter{page}{1}
 
 \section{Introduction}\label{sec:intro}
-The mean-variance frontier is a mathematical framework for building portfolios that aim to maximize expected returns 
-while controlling a set level of risk. This concept extends diversification in investing, highlighting that owning diverse 
-financial assets is less risky than focusing on a single asset class. The key idea is that an asset's risk and return should 
-be evaluated in the context of its contribution to the overall risk and return of a diversified portfolio. Historical asset 
-price variance is used as a proxy for estimating future risk in the mean-variance frontier.
+The mean-variance frontier is a mathematical framework for building portfolios that aim to maximize expected returns while 
+controlling a set level of risk. This concept extends diversification in investing, highlighting that owning diverse financial 
+assets is less risky than focusing on a single asset class. The key idea is that an asset's risk and return should be evaluated 
+in the context of its contribution to the overall risk and return of a diversified portfolio. Historical asset price variance 
+is used as a proxy for estimating future risk in the mean-variance frontier.
 
 \noindent In the evolving landscape of financial assets, the integration of cryptocurrencies adds a new dimension to portfolio
  construction. Cryptocurrencies, such as Bitcoin and Ethereum, bring unique characteristics and opportunities to the mix. 
@@ -69,17 +69,17 @@ price variance is used as a proxy for estimating future risk in the mean-varianc
 The mean-variance analysis is used to identify optimal/efficient portfolios.
 
 \subsection{Data}
-\textbf{Equity data:} Kenneth French website, 12 industry portfolios. The assets whithin the industry portfolios are equally 
-weighted and the data downloaded have daily frequency. 
+\textbf{Equity data:} Kenneth French website, 12 industry portfolios. The assets within the industry portfolios are equally 
+weighted and the data downloaded has daily frequency. 
 
-\noindent\textbf{Crypto's:} Imported the 3 largest crypto currencies based on market cap, source: Yahoo Finance. Can also be
- extended in the data grabbing. Crypto data is dowloaded with daily frequency.  
+\noindent\textbf{Crypto's:} Imported the 3 largest crypto currencies based on market cap, source: Yahoo Finance. Can also be 
+extended in the data grabbing. Crypto data is downloaded with daily frequency.  
 
-\noindent \textbf{Caveat:} We only have data from 2017-2023 on the cryptocurrencies. Ideally, to conlude that cryptocurrencies
- actually extends the mean-variance frontier of an equity investor we would want a data on a longer time frame.    
+\noindent \textbf{Caveat:} We only have data from 2017-2023 on the cryptocurrencies. Ideally, to conclude that cryptocurrencies 
+actually extends the mean-variance frontier of an equity investor, we would want data on a longer time frame.    
 
 \subsection{Return calculations}
-The data downloaded from Kenneth French's website is already calculated as simple returns, and are given in percentage terms. 
+The data downloaded from Kenneth French's website is already calculated as simple returns, and is given in percentage terms. 
 To convert them to percentage points we divide them by 100.  
 
 \noindent For the data on the crypto prices downloaded from yahoo finance we use the following formula to obtain the simple 
@@ -89,7 +89,7 @@ $$r_t = \frac{P_t-P_{t-1}}{P_{t-1}}$$
 \subsection{Frontier construction}
 \textbf{Consider a three asset portfolio}
 
-Expected return of a portfolio:
+Expected return of the portfolio:
 $$E(R_p) = w_AE(R_A) + w_BE(R_B) + w_CE(R_c)$$
 
 Portfolio variance: 
@@ -140,9 +140,9 @@ investor. However, the small sample size would have to be taken into considerati
 The Sharpe ratio is defined as: 
 $$SR = \frac{E(R_p)-rf}{\sigma_p}$$
 
-\noindent In the Sharpe ratio plot cryptocurrencies are plotted in blue and equities in light blue. From the plot we can 
-tell that two of the cryptocurrencies (BTC and ETH) are top performers. The Sharpe ratio meausures the excess return you 
-get per unit of risk, which also makes it a good proxy as a performance measure. 
+\noindent In the Sharpe ratio plot cryptocurrencies are plotted in blue and equities in light blue. From the plot we can tell 
+that two of the cryptocurrencies (BTC and ETH) are top performers. The Sharpe ratio measures the excess return you get per 
+unit of risk, which also makes it a good proxy as a performance measure. 
 
 \begin{figure}[H]
     \centering
@@ -172,14 +172,14 @@ get per unit of risk, which also makes it a good proxy as a performance measure.
 
 \section{Conclusion}\label{sec:discussion}
 The inclusion of cryptocurrencies in an investment portfolio extends the mean-variance frontier for an equity investor, 
-introducing a new dimension to diversification strategies and expanding the spectrum of risk and return possibilities. 
-However, the application of modern portfolio theory as a trading strategy is not without criticism. 
+introducing a new dimension to diversification strategies and expanding the spectrum of risk and return possibilities.
+ However, the application of modern portfolio theory as a trading strategy is not without criticism. 
 
-\noindent One major critique involves the assumption of normality in MPT, which may not accurately capture the high 
-volatility and non-normally distributed returns often exhibited by cryptocurrencies. Additionally, the static nature 
-of expected returns, variances, and covariances in the model might not fully account for the dynamic nature of rapidly 
-evolving cryptocurrency markets. The sensitivity of optimal portfolio allocations to input parameters is another concern, 
-as small changes in estimates can lead to significant shifts in portfolio composition.
+\noindent One major critique involves the assumption of normality in MPT, which may not accurately capture the high volatility
+ and non-normally distributed returns often exhibited by cryptocurrencies. Additionally, the static nature of expected returns,
+  variances, and covariances in the model might not fully account for the dynamic nature of rapidly evolving cryptocurrency 
+  markets. The sensitivity of optimal portfolio allocations to input parameters is another concern, as small changes in 
+  estimates can lead to significant shifts in portfolio composition.
 
 \noindent Furthermore, the efficiency assumption of market prices in MPT may be challenged in the context of cryptocurrencies, 
 where markets may be less mature and subject to information asymmetry.
