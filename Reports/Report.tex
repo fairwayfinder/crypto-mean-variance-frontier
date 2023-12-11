@@ -105,9 +105,9 @@ The variance-covariance matrix of assets:
 \[
 \text{Covariance Matrix:}
 \begin{bmatrix}
-    \sigma_{1}^2 & \sigma_{12} & \sigma_{13} \\
-    \sigma_{12} & \sigma_{2}^2 & \sigma_{23} \\
-    \sigma_{13} & \sigma_{23} & \sigma_{3}^2 \\
+    \sigma_{A}^2 & \sigma_{AB} & \sigma_{AC} \\
+    \sigma_{AB} & \sigma_{B}^2 & \sigma_{BC} \\
+    \sigma_{AC} & \sigma_{BC} & \sigma_{C}^2 \\
 \end{bmatrix}
 \]
 
@@ -140,9 +140,9 @@ investor. However, the small sample size would have to be taken into considerati
 The Sharpe ratio is defined as: 
 $$SR = \frac{E(R_p)-rf}{\sigma_p}$$
 
-\noindent In the Sharpe ratio plot cryptocurrencies are plotted in blue and equities in light blue. From the plot we can
- tell that two of the cryptocurrencies (BTC and ETH) are top performers. The Sharpe ratio measures the excess return you 
- get per unit of risk, which also makes it a good proxy as a performance measure. 
+\noindent In the Sharpe ratio plot cryptocurrencies are plotted in blue and equities in light blue. From the plot we can tell 
+that two of the cryptocurrencies (BTC and ETH) are top performers. The Sharpe ratio measures the excess return you get per 
+unit of risk, which also makes it a good proxy as a performance measure. 
 
 \begin{figure}[H]
     \centering
@@ -157,7 +157,7 @@ $$SR = \frac{E(R_p)-rf}{\sigma_p}$$
 \subsection{Full Sample}\label{sec:full sample}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{Figures/Efficient_Frontier_Comparison_Full_Sample.png}
+    \includegraphics[width=0.9\linewidth]{Figures/Efficient_Frontier_Comparison_Full_Sample.png}
     \caption{Comparing the two mean-variance frontiers for the full sample. From 2017-10-31 to 2023-10-31.}
     \label{fig:full}
 \end{figure}
@@ -166,7 +166,7 @@ $$SR = \frac{E(R_p)-rf}{\sigma_p}$$
 \subsubsection{Frontier with equity bull market time frame}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{Figures/Efficient_Frontier_Comparison_Bull_Market.png}
+    \includegraphics[width=0.7\linewidth]{Figures/Efficient_Frontier_Comparison_Bull_Market.png}
     \caption{Comparing the two mean-variance frontiers for the bull market time frame, from 2017-10-31 to 2021-12-1.}
     \label{fig:bull}
 \end{figure}
@@ -174,7 +174,7 @@ $$SR = \frac{E(R_p)-rf}{\sigma_p}$$
 \subsubsection{Frontier with time frame corresponding to high volatility equity market with large negative drawdowns}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{Figures/Efficient_Frontier_Comparison_Drawdown_Market.png}
+    \includegraphics[width=0.7\linewidth]{Figures/Efficient_Frontier_Comparison_Drawdown_Market.png}
     \caption{Comparing the two mean-variance frontiers for the drawdown market, from 2021-12-1 to 2023-10-31.}
     \label{fig:drawdown}
 \end{figure}
@@ -191,11 +191,11 @@ and non-normally distributed returns often exhibited by cryptocurrencies. Additi
  markets. The sensitivity of optimal portfolio allocations to input parameters is another concern, as small changes in 
  estimates can lead to significant shifts in portfolio composition.
 
-\noindent Furthermore, the efficiency assumption of market prices in MPT may be challenged in the context of cryptocurrencies,
- where markets may be less mature and subject to information asymmetry.
+\noindent Furthermore, the efficiency assumption of market prices in MPT may be challenged in the context of cryptocurrencies, 
+where markets may be less mature and subject to information asymmetry.
 
-\section{Bibliography}\label{sec:bibliography}
-
+\clearpage
+\addcontentsline{toc}{section}{References}
 \bibliographystyle{apalike}
 \bibliography{References}
 
