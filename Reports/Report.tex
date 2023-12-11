@@ -33,8 +33,8 @@
 \begin{abstract}
 \noindent In this project we will investigate if cryptocurrencies extend the mean-variance frontier of an equity investor. 
 By using an industry portfolio data set consisting of 12 different industries collected from Kenneth French data library 
-combined with the 3 largest cryptocurrencies based on market capitalization, we extract the mean-variance frontier. 
-We show that adding cryptocurrencies to the mean-variance frontier has a significant impact.
+combined with the 3 largest cryptocurrencies based on market capitalization, we extract the mean-variance frontier. We show 
+that adding cryptocurrencies to the mean-variance frontier has a significant impact.
 
 \end{abstract}
 
@@ -51,9 +51,9 @@ assets is less risky than focusing on a single asset class. The key idea is that
 in the context of its contribution to the overall risk and return of a diversified portfolio. Historical asset price variance 
 is used as a proxy for estimating future risk in the mean-variance frontier.
 
-\noindent In the evolving landscape of financial assets, the integration of cryptocurrencies adds a new dimension to portfolio
- construction. Cryptocurrencies, such as Bitcoin and Ethereum, bring unique characteristics and opportunities to the mix. 
- Therefore, it is interesting to explore if this new universe of assets can enhance portfolio diversification. 
+\noindent In the evolving landscape of financial assets, the integration of cryptocurrencies adds a new dimension to portfolio 
+construction. Cryptocurrencies, such as Bitcoin and Ethereum, bring unique characteristics and opportunities to the mix. 
+Therefore, it is interesting to explore if this new universe of assets can enhance portfolio diversification. 
 
 \section{Methodology}\label{sec:methods}
 \subsection{Assumptions under the MPT}
@@ -120,8 +120,8 @@ and $R^Tw$ is the portfolio's expected return.\cite{wikiref}
 \end{equation}
 
 \noindent The optimization mentioned above identifies a specific point on the efficient frontier. This point corresponds to 
-the inverse of the slope of the frontier, that would be $q$, considering a scenario where portfolio return variance is plotted
- horizontally instead of standard deviation. The frontier is parametric on $q$.\cite{wikiref}
+the inverse of the slope of the frontier, that would be $q$, considering a scenario where portfolio return variance is 
+plotted horizontally instead of standard deviation. The frontier is parametric on $q$.\cite{wikiref}
 
 \section{Analysis}\label{sec:analysis}
 \subsection{Correlations}
@@ -140,9 +140,9 @@ investor. However, the small sample size would have to be taken into considerati
 The Sharpe ratio is defined as: 
 $$SR = \frac{E(R_p)-rf}{\sigma_p}$$
 
-\noindent In the Sharpe ratio plot cryptocurrencies are plotted in blue and equities in light blue. From the plot we can tell 
-that two of the cryptocurrencies (BTC and ETH) are top performers. The Sharpe ratio measures the excess return you get per 
-unit of risk, which also makes it a good proxy as a performance measure. 
+\noindent In the Sharpe ratio plot cryptocurrencies are plotted in blue and equities in light blue. From the plot we can
+ tell that two of the cryptocurrencies (BTC and ETH) are top performers. The Sharpe ratio measures the excess return you 
+ get per unit of risk, which also makes it a good proxy as a performance measure. 
 
 \begin{figure}[H]
     \centering
@@ -158,31 +158,41 @@ unit of risk, which also makes it a good proxy as a performance measure.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{Figures/Efficient_Frontier_Comparison_Full_Sample.png}
-    \caption{Comparing the two mean-variance frontiers (full sample)}
+    \caption{Comparing the two mean-variance frontiers for the full sample. From 2017-10-31 to 2023-10-31.}
     \label{fig:full}
 \end{figure}
 
 \subsection{Restricted Sample}\label{sec:restricted sample}
+\subsubsection{Frontier with equity bull market time frame}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{Figures/Efficient_Frontier_Comparison_Bull_Market.png}
-    \caption{Comparing the two mean-variance frontiers (restricted sample)}
-    \label{fig:restricted}
+    \includegraphics[width=0.8\linewidth]{Figures/Efficient_Frontier_Comparison_Bull_Market.png}
+    \caption{Comparing the two mean-variance frontiers for the bull market time frame, from 2017-10-31 to 2021-12-1.}
+    \label{fig:bull}
 \end{figure}
+
+\subsubsection{Frontier with time frame corresponding to high volatility equity market with large negative drawdowns}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/Efficient_Frontier_Comparison_Drawdown_Market.png}
+    \caption{Comparing the two mean-variance frontiers for the drawdown market, from 2021-12-1 to 2023-10-31.}
+    \label{fig:drawdown}
+\end{figure}
+
 
 \section{Conclusion}\label{sec:discussion}
 The inclusion of cryptocurrencies in an investment portfolio extends the mean-variance frontier for an equity investor, 
-introducing a new dimension to diversification strategies and expanding the spectrum of risk and return possibilities.
- However, the application of modern portfolio theory as a trading strategy is not without criticism. 
+introducing a new dimension to diversification strategies and expanding the spectrum of risk and return possibilities. 
+However, the application of modern portfolio theory as a trading strategy is not without criticism. 
 
-\noindent One major critique involves the assumption of normality in MPT, which may not accurately capture the high volatility
- and non-normally distributed returns often exhibited by cryptocurrencies. Additionally, the static nature of expected returns,
-  variances, and covariances in the model might not fully account for the dynamic nature of rapidly evolving cryptocurrency 
-  markets. The sensitivity of optimal portfolio allocations to input parameters is another concern, as small changes in 
-  estimates can lead to significant shifts in portfolio composition.
+\noindent One major critique involves the assumption of normality in MPT, which may not accurately capture the high volatility 
+and non-normally distributed returns often exhibited by cryptocurrencies. Additionally, the static nature of expected returns,
+ variances, and covariances in the model might not fully account for the dynamic nature of rapidly evolving cryptocurrency 
+ markets. The sensitivity of optimal portfolio allocations to input parameters is another concern, as small changes in 
+ estimates can lead to significant shifts in portfolio composition.
 
-\noindent Furthermore, the efficiency assumption of market prices in MPT may be challenged in the context of cryptocurrencies, 
-where markets may be less mature and subject to information asymmetry.
+\noindent Furthermore, the efficiency assumption of market prices in MPT may be challenged in the context of cryptocurrencies,
+ where markets may be less mature and subject to information asymmetry.
 
 \section{Bibliography}\label{sec:bibliography}
 

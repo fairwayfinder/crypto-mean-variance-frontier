@@ -11,22 +11,22 @@
 
 \begin{frame}
 \frametitle{The Project}
-In this project we will investigate if cryptocurrencies extend the mean-variance frontier of an equity investor. 
-By using an industry portfolio dataset consisting of 12 different industries collected from Kenneth French data 
-library combined with the 3 largest cryptocurrencies based on market capitalization, we extract the mean-variance 
-frontier. We show that adding cryptocurrencies to the mean-variance frontier has a significant impact.
+In this project we will investigate if cryptocurrencies extend the mean-variance frontier of an equity investor. By using 
+an industry portfolio data set consisting of 12 different industries collected from Kenneth French data library combined 
+with the 3 largest cryptocurrencies based on market capitalization, we extract the mean-variance frontier. We show that 
+adding cryptocurrencies to the mean-variance frontier has a significant impact.
 \end{frame}
 
 \begin{frame}
 \frametitle{Data}
-\textbf{Equity data:} Kenneth French website, 12 industry portfolios. The assets within the industry portfolios are 
-equally weighted and the data downloaded has daily frequency. 
+\textbf{Equity data:} Kenneth French website, 12 industry portfolios. The assets within the industry portfolios are equally 
+weighted and the data downloaded has daily frequency. 
 
-\noindent\textbf{Crypto's:} Imported the 3 largest crypto currencies based on market cap, source: Yahoo Finance. 
-Can also be extended in the data grabbing. Crypto data is downloaded with daily frequency.  
+\noindent\textbf{Crypto's:} Imported the 3 largest crypto currencies based on market cap, source: Yahoo Finance. Can also be 
+extended in the data grabbing. Crypto data is downloaded with daily frequency.  
 
-\noindent \textbf{Caveat:} We only have data from 2017-2023 on the cryptocurrencies. Ideally, to conclude that 
-cryptocurrencies actually extends the mean-variance frontier of an equity investor, we would want data on a longer time frame.    
+\noindent \textbf{Caveat:} We only have data from 2017-2023 on the cryptocurrencies. Ideally, to conclude that cryptocurrencies
+ actually extends the mean-variance frontier of an equity investor, we would want data on a longer time frame.    
 \end{frame}
 
 
@@ -51,30 +51,40 @@ cryptocurrencies actually extends the mean-variance frontier of an equity invest
 \end{frame}
 
 \begin{frame}
-\frametitle{Results}
+\frametitle{Full sample, from 2017-10-31 to 2023-10-31}
 \begin{figure}
     \centering
     \includegraphics[width=0.8\linewidth]{Figures/Efficient_Frontier_Comparison_Full_Sample.png}
-    \caption{Full sample}
+    \caption{Comparing the two mean-variance frontiers for the full sample}
     \label{fig:full}
 \end{figure}
 \end{frame}
 
 \begin{frame}
-\frametitle{Results}
+\frametitle{Bull market, from 2017-10-31 to 2021-12-1}
 \begin{figure}
     \centering
     \includegraphics[width=0.8\linewidth]{Figures/Efficient_Frontier_Comparison_Bull_Market.png}
-    \caption{Restricted sample}
-    \label{fig:restricted}
+    \caption{Comparing the two mean-variance frontiers for the bull market time frame}
+    \label{fig:bull}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Drawdown market, from 2021-12-1 to 2023-10-31}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/Efficient_Frontier_Comparison_Drawdown_Market.png}
+    \caption{Comparing the two mean-variance frontiers for the drawdown market}
+    \label{fig:drawdown}
 \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Conclusion}
 The inclusion of cryptocurrencies in an investment portfolio extends the mean-variance frontier for an equity investor, 
-introducing a new dimension to diversification strategies and expanding the spectrum of risk and return possibilities.
- \nocite{wikiref}
+introducing a new dimension to diversification strategies and expanding the spectrum of risk and return possibilities. 
+\nocite{wikiref}
 \end{frame}
 
 \begin{frame}
