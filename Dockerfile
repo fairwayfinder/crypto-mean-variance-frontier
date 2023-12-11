@@ -21,6 +21,7 @@ RUN apt-get update && \
 # Install python 3 packages --> could add specific version numbers, 
 RUN mamba install --quiet --yes \
     'matplotlib' \
+    'ipywidgets' \
     'numpy' \
     'pandas' \
     'pandas-datareader' \
